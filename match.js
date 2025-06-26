@@ -58,7 +58,6 @@ class EnhancedMemoryGame {
     }
     
     initializeEventListeners() {
-        // Difficulty selector
         document.querySelectorAll('.difficulty-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 document.querySelectorAll('.difficulty-btn').forEach(b => b.classList.remove('active'));
@@ -68,7 +67,6 @@ class EnhancedMemoryGame {
             });
         });
         
-        // Card theme selector
         document.querySelectorAll('.card-theme-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 document.querySelectorAll('.card-theme-btn').forEach(b => b.classList.remove('active'));
@@ -78,17 +76,14 @@ class EnhancedMemoryGame {
             });
         });
         
-        // Sound toggle
         this.soundToggle.addEventListener('click', () => {
             this.toggleSound();
         });
         
-        // Theme toggle
         this.themeToggle.addEventListener('click', () => {
             this.toggleTheme();
         });
         
-        // Button event listeners
         this.newGameBtn.addEventListener('click', () => this.newGame());
         this.resetBtn.addEventListener('click', () => this.reset());
         this.hintBtn.addEventListener('click', () => this.showHint());
@@ -97,7 +92,6 @@ class EnhancedMemoryGame {
             this.newGame();
         });
         
-        // Keyboard shortcuts
         document.addEventListener('keydown', (e) => {
             if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
             
@@ -123,7 +117,6 @@ class EnhancedMemoryGame {
             }
         });
         
-        // Modal click outside to close
         this.victoryModal.addEventListener('click', (e) => {
             if (e.target === this.victoryModal) {
                 this.closeVictoryModal();
@@ -375,7 +368,6 @@ class EnhancedMemoryGame {
         
         if (unmatched.length < 2) return;
         
-        // Find a matching pair
         for (let i = 0; i < unmatched.length; i++) {
             for (let j = i + 1; j < unmatched.length; j++) {
                 if (unmatched[i].card.symbol === unmatched[j].card.symbol) {
@@ -562,11 +554,9 @@ class EnhancedMemoryGame {
     }
 }
 
-// Initialize game when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     const game = new EnhancedMemoryGame();
     
-    // Expose game methods to global scope for button clicks
     window.startNewGame = () => game.newGame();
     window.resetGame = () => game.reset();
     window.showHint = () => game.showHint();
