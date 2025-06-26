@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Match Pro - Find the Pairs</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="match.css">
+</head>
+<body>
+    <button class="sound-toggle" id="soundToggle" title="Toggle Sound">🔊</button>
+    <button class="theme-toggle" id="themeToggle" title="Toggle Theme">🌓</button>
+
+    <div class="game-container">
+        <div class="game-header">
+            <h1 class="game-title floating">Memory Match Pro</h1>
+            <p class="game-subtitle">Challenge your memory and find all pairs!</p>
+            
+            <div class="difficulty-selector">
+                <button class="difficulty-btn active" data-difficulty="easy">Easy (4×4)</button>
+                <button class="difficulty-btn" data-difficulty="medium">Medium (6×4)</button>
+                <button class="difficulty-btn" data-difficulty="hard">Hard (6×6)</button>
+            </div>
+
+            <div class="card-theme-selector">
+                <button class="card-theme-btn active" data-theme="emojis">Emojis</button>
+                <button class="card-theme-btn" data-theme="animals">Animals</button>
+                <button class="card-theme-btn" data-theme="flags">Flags</button>
+                <button class="card-theme-btn" data-theme="numbers">Numbers</button>
+            </div>
+        </div>
+
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-label">Attempts</div>
+                <div class="stat-value" id="attempts">0</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">Matches</div>
+                <div class="stat-value" id="matches">0</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">Time</div>
+                <div class="stat-value" id="timer">00:00</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">Score</div>
+                <div class="stat-value" id="score">0</div>
+            </div>
+        </div>
+
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <div class="game-board board-4x4" id="gameBoard"></div>
+
+        <div class="controls">
+            <button class="btn" id="newGameBtn">
+                <span>🎮</span> New Game
+            </button>
+            <button class="btn secondary" id="resetBtn">
+                <span>🔄</span> Reset
+            </button>
+            <button class="btn success" id="hintBtn">
+                <span>💡</span> Hint <span class="hint-counter" id="hintCounter">3</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="victory-modal" id="victoryModal">
+        <div class="victory-content">
+            <span class="victory-emoji">🎉</span>
+            <h2 class="victory-title">Fantastic!</h2>
+            <p>You've successfully matched all pairs!</p>
+            <div class="victory-stats" id="victoryStats"></div>
+            <div id="performanceBadges"></div>
+            <button class="btn" id="playAgainBtn">
+                <span>🎮</span> Play Again
+            </button>
+        </div>
+    </div>
+
+    <script src="match.js"></script>
+</body>
+</html>
